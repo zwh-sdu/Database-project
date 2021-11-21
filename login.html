@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="./common/style.css">
+    <style>
+        body {
+            /*background: #16a085;*/
+            background: url("s3.jpg");
+            background-size:100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            z-index: -1;
+            position: absolute;
+        }
+    </style>
+    <script src="./login_files/jquery.js"></script>
+    <script src="./login_files/verificationNumbers.js"></script>
+    <script src="./login_files/Particleground.js"></script>
+    <script>
+        $(document).ready(function () {
+            //粒子背景特效
+            $('body').particleground({
+                dotColor: '#5cbdaa',
+                lineColor: '#5cbdaa'
+            });
+            //测试提交，对接程序删除即可
+            $(".submit_btn").click(function () {
+                location.href = "index.html";
+            });
+        });
+    </script>
+</head>
+<body>
+<canvas class="pg-canvas" width="1920" height="254"></canvas>
+<dl class="admin_login">
+    <dt>
+        <strong>山东大学宿舍管理系统</strong>
+        <em>SDU Dormitory Management System</em>
+    </dt>
+    <form action="login.php" method="post">
+        <dd class="user_icon">
+            <input type="text" name="usernameValue" placeholder="账号" class="login_txtbx">
+        </dd>
+        <dd class="pwd_icon">
+            <input type="password" name="passwordValue" placeholder="密码" class="login_txtbx">
+        </dd>
+        <dd>
+            <input type="submit" id="login_submit" value="立即登录" class="submit_btn">
+        </dd>
+    </form>
+    <dd>
+        <p>© Database Course Design by zwh</p>
+    </dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>编辑账号信息</title>
+  <meta name="author" content="DeathGhost">
+  <link rel="stylesheet" type="text/css" href="../common/style.css">
+  <!--[if lt IE 9]>
+  <script src="js/html5.js"></script>
+  <![endif]-->
+  <script src="../common/jquery.js"></script>
+  <script src="../common/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="student_info.js"></script>
+</head>
+<body>
+<!--header-->
+<header>
+  <h1><img src="../common/logo.png"></h1>
+  <ul class="rt_nav">
+    <li><a href="../login.html" class="quit_icon">安全退出</a></li>
+  </ul>
+</header>
+<!--aside nav-->
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar _mCS_1">
+  <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
+       style="max-height: none;">
+    <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+      <h2><a href="./index.html">起始页</a></h2>
+      <ul>
+        <li>
+          <dl>
+            <dt>用户基本设置</dt>
+            <!--当前链接则添加class:active-->
+            <dd><a href="./user_detail.html" class="active">个人信息</a></dd>
+            <dd><a href="./passwordchange.html">修改密码</a></dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>宿舍检查</dt>
+            <dd><a href="./score_list.html">查看最近检查的评分信息</a></dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>报修管理</dt>
+            <dd><a href="./repairment_ask.html">报修申请</a></dd>
+            <dd><a href="./repairment_list.html">报修信息查询</a></dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>关于</dt>
+            <dd><a>© 版权所有zwh</a></dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <div id="mCSB_1_scrollbar_vertical"
+         class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical"
+         style="display: block;">
+      <div class="mCSB_draggerContainer">
+        <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+             style="position: absolute; min-height: 30px; display: block; height: 741px; max-height: 851px; top: 0px;"
+             oncontextmenu="return false;">
+          <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+        </div>
+        <div class="mCSB_draggerRail"></div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<section class="rt_wrap content mCustomScrollbar _mCS_2 mCS_no_scrollbar">
+  <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
+       style="max-height: none;">
+    <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+         style="position:relative; top:0; left:0;" dir="ltr">
+      <div class="rt_content">
+        <div class="page_title">
+          <h2 class="fl">学生基本资料</h2>
+        </div>
+        <ul class="ulColumn2">
+          <li>
+            <span class="item_name" style="width:120px;">学号：</span>
+            <input type="text" id="stuid" class="textbox textbox_225" disabled="disabled" >
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">姓名：</span>
+            <input type="text" id="stuname" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">性别：</span>
+            <input type="text" id="stusex" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">专业：</span>
+            <input type="text" id="stumajor" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">班级：</span>
+            <input type="text" id="stuclass" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">年级：</span>
+            <input type="text" id="stugrade" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">宿舍：</span>
+            <input type="text" id="dorm" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">床位号：</span>
+            <input type="text" id="bed" class="textbox textbox_225" disabled="disabled">
+          </li>
+          <li>
+            <span class="item_name" style="width:120px;">是否为宿舍长：</span>
+            <input type="text" id="isheader" class="textbox textbox_225" disabled="disabled">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="mCSB_2_scrollbar_vertical"
+         class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical"
+         style="display: none;">
+      <div class="mCSB_draggerContainer">
+        <div id="mCSB_2_dragger_vertical" class="mCSB_dragger"
+             style="position: absolute; min-height: 30px; height: 0px; top: 0px;"
+             oncontextmenu="return false;">
+          <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+        </div>
+        <div class="mCSB_draggerRail"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+
+</html>

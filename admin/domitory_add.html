@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>宿舍管理系统_admin</title>
+    <meta name="author" content="C.">
+    <link rel="stylesheet" type="text/css" href="../common/style.css">
+    <script src="../common/jquery.js"></script>
+    <script src="../common/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../common/xlsx.full.min.js"></script>
+    <script src="dormitory_add.js"></script>
+</head>
+
+<body>
+<!--header-->
+<header>
+    <h1><img src="../common/logo.png"></h1>
+    <ul class="rt_nav">
+        <li><a href="../login.html" class="quit_icon">安全退出</a></li>
+    </ul>
+</header>
+<!--aside nav-->
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar _mCS_1">
+    <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
+         style="max-height: none;">
+        <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+            <h2><a href="./index.html">起始页</a></h2>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>用户基本设置</dt>
+                        <!--当前链接则添加class:active-->
+                        <dd><a href="./passwordchange.html">修改密码</a></dd>
+                        <dd><a href="./account_stu.html">学生账号管理</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>基本信息查询</dt>
+                        <dd><a href="./student_list.html">学生信息查询</a></dd>
+                        <dd><a href="./dormitory_list.html" class="active">宿舍信息查询</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>人员来往登记</dt>
+                        <dd><a href="./leave_back.html">学生离校记录</a></dd>
+                        <dd><a href="./change_dormitory.html">学生更换宿舍记录</a></dd>
+                        <dd><a href="./visitors.html">外来人员来访登记</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>宿舍检查</dt>
+                        <dd><a href="./edit_inspection.html">新增检查</a></dd>
+                        <dd><a href="./inspection_list.html">查看检查记录</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>报修管理</dt>
+                        <dd><a href="repairment_list.html">查看报修记录</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>关于</dt>
+                    </dl>
+                </li>
+                <li>
+                    <p class="btm_infor">© 版权所有zwh</p>
+                </li>
+            </ul>
+        </div>
+        <div id="mCSB_1_scrollbar_vertical"
+             class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
+            <div class="mCSB_draggerContainer">
+                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+                     style="position: absolute; min-height: 30px; display: block; height: 77px; max-height: 268px; top: 0px;"
+                     oncontextmenu="return false;">
+                    <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                </div>
+                <div class="mCSB_draggerRail"></div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<section class="rt_wrap content mCustomScrollbar _mCS_2 mCS_no_scrollbar">
+    <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
+         style="max-height: none;">
+        <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+             style="position:relative; top:0; left:0;" dir="ltr">
+            <div class="rt_content">
+                <div class="page_title">
+                    <h2 class="fl">添加宿舍</h2>
+                    <a class="fr top_rt_btn" id="in">导入EXCEL批量添加</a>
+                    <input type="file" id="file" accept=".xls,.xlsx" style="display:none">
+                </div>
+                <ul class="ulColumn2">
+                    <li>
+                        <span class="item_name" style="width:120px;">宿舍号：</span>
+                        <input type="text" id="dormid" class="textbox textbox_225">
+                    </li>
+                    <li>
+                        <span class="item_name" style="width:120px;">宿舍容量：</span>
+                        <input type="text" id="dormcap" class="textbox textbox_225">
+                    </li>
+                </ul>
+                <ul class="ulColumn2">
+                    <li>
+                        <span class="item_name" style="width:120px"></span>
+                        <input type="submit" id="add_dorm_submit" class="link_btn" value="新建">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="mCSB_2_scrollbar_vertical"
+             class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical"
+             style="display: none;">
+            <div class="mCSB_draggerContainer">
+                <div id="mCSB_2_dragger_vertical" class="mCSB_dragger"
+                     style="position: absolute; min-height: 30px; height: 0px; top: 0px;"
+                     oncontextmenu="return false;">
+                    <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                </div>
+                <div class="mCSB_draggerRail"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+
+</html>

@@ -80,7 +80,7 @@ $(function(){
             //document.getElementById("demo").innerHTML= JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]) );
             //alert(JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]) ));
             //var data = JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]));
-            //console.log(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]))
+            // console.log(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]))
             $.post("dormitory_add_many.php",
                 {
                     data:XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])

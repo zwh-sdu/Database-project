@@ -19,19 +19,19 @@
 window.onload=function(){
     $.post("student_list.php", {},
         function(data,status){
-            if(status==="success"){
-                let res=JSON.parse(data)
-                let result=""
-                for(let i=0;i<res.length;i++){
-                    result+='<tr>'
-                    result+='<td class="center">'+res[i]["StuID"]+'</td>'
-                    result+='<td class="center">'+res[i]['StuName']+'</td>'
-                    result+='<td class="center">'+res[i]['StuSex']+'</td>'
-                    result+='<td class="center">'+res[i]['DormID']+'</td>'
-                    result+='<td class="center">'+res[i]['BedID']+'</td>'
-                    result+='<td class="center">'+res[i]['IsHeader']+'</td>'
-                    result+='<td class="center"><a title="编辑" class="link_icon">编辑</a><a title="删除" class="link_icon1">删除</a></td>'
-                    result+='</tr>'
+                        if(status==="success"){
+                            let res=JSON.parse(data)
+                            let result=""
+                            for(let i=0;i<res.length;i++){
+                                result+='<tr>'
+                                result+='<td class="center">'+res[i]["StuID"]+'</td>'
+                                result+='<td class="center">'+res[i]['StuName']+'</td>'
+                                result+='<td class="center">'+res[i]['StuSex']+'</td>'
+                                result+='<td class="center">'+res[i]['DormID']+'</td>'
+                                result+='<td class="center">'+res[i]['BedID']+'</td>'
+                                result+='<td class="center">'+res[i]['IsHeader']+'</td>'
+                                result+='<td class="center"><a title="编辑" class="link_icon">编辑</a><a title="删除" class="link_icon1">删除</a></td>'
+                                result+='</tr>'
                 }
                 $('#tb').html(result)
                 // 查看学生具体信息

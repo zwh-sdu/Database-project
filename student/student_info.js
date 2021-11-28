@@ -23,14 +23,11 @@ function getcookie(cookiename) {
     if (start2 > -1) {
         start = mycookie.indexOf("=", start2) + 1;
         var end = mycookie.indexOf(";", start);
-
         if (end == -1) {
             end = mycookie.length;
         }
-
         result = unescape(mycookie.substring(start, end));
     }
-
     return result;
 }
 window.onload = function()

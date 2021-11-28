@@ -11,7 +11,6 @@ if ($conn->connect_error) {
 }
 //先查询student和student_dormitory的自然连接获得结果。
 $stuid = $_GET['stuid'];
-//$stuid = '201900161140';
 $sql = "SELECT * FROM student natural join student_dormitory WHERE (StuID='$stuid')";
 $result = $conn->query($sql);
 if($result->num_rows>0){

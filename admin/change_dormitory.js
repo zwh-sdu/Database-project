@@ -40,8 +40,13 @@ $(function(){
             },
             function(data,status){
                 if(status==="success"){
-                    alert("更换成功")
-                    window.location.href="change_dormitory.html"
+                    data=JSON.parse(data)
+                    if(data){
+                        alert("更换成功");
+                        window.location.href="change_dormitory.html"
+                    }else{
+                        alert("更换失败");
+                    }
                 }else{
                     alert("提交失败");
                 }

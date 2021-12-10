@@ -11,10 +11,26 @@ if ($conn->connect_error) {
 }
 
 $stuid=$_POST['stuid'];
-$sql = "DELETE FROM student WHERE StuID='$stuid'";
-$result = $conn->query($sql);
-$sql = "DELETE FROM account_info WHERE UserId='$stuid'";
-$result = $conn->query($sql);
-$sql = "DELETE FROM student_dormitory WHERE StuID='$stuid'";
-$result = $conn->query($sql);
+
+//由于在事务提交中系统默认提交，故这里设置为FALSE先不提交
+$conn->autocommit(false);
+//其实这里系统已经相当在这里做个保存点，记录此时所有状态，回滚是回滚到这里
+
+$sql1 = "DELETE FROM student WHERE StuID='$stuid'";
+$result1 = $conn->query($sql1);
+$sql2 = "DELETE FROM account_info WHERE UserId='$stuid'";
+$result2 = $conn->query($sql2);
+$sql3 = "DELETE FROM student_dormitory WHERE StuID='$stuid'";
+$result3 = $conn->query($sql3);
+
+//判断是否都执行成功
+if(!$result1||!$result2||!$result3){
+    //只要有一条失败便回滚，都不执行,若设置滚回点，如a,加个参数a变滚回到a处
+    $conn->rollback();
+}else{
+    //一旦提交无法回滚，成功则提交
+    $conn->commit();
+}
+echo json_encode($result1&&$result2&&$result3);
+
 $conn->close();

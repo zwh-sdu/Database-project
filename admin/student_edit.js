@@ -48,8 +48,13 @@ $(function(){
             },
             function(data,status){
                 if(status==="success"){
-                    alert("编辑成功")
-                    window.location.href='student_list.html'
+                    data=JSON.parse(data)
+                    if(data){
+                        alert("编辑成功")
+                        window.location.href='student_list.html'
+                    }else{
+                        alert("编辑失败")
+                    }
                 }else{
                     alert("提交失败");
                 }

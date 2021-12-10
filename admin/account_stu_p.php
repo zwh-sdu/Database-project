@@ -11,9 +11,7 @@ if ($conn->connect_error) {
 }
 
 $stuid=$_POST['stuid'];
-
 //修改密码
 $sql = "UPDATE ACCOUNT_INFO SET UserPwd='88888888' WHERE UserId='$stuid'";
 $result = $conn->query($sql);
-
 $conn->close();

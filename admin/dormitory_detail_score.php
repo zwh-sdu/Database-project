@@ -32,6 +32,15 @@ if($result->num_rows>0){
     while ($row = mysqli_fetch_array($result)){
         $res[]=$row;
     }
+//    echo json_encode($res);
+}
+
+$sql = "SELECT DormCap FROM dormitory WHERE DormID='$dormid'";
+$result = $conn->query($sql);
+if($result->num_rows>0){
+    while ($row = mysqli_fetch_array($result)){
+        $res[]=$row;
+    }
     echo json_encode($res);
 }
 

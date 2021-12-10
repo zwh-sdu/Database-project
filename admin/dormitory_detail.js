@@ -60,6 +60,7 @@ $(document).ready(function () {
                 $('#avg').val(res[0]['avg'])
                 $('#good').val(res[1]['good'])
                 $('#bad').val(res[2]['bad'])
+                $('#dormcap').val(res[3]['DormCap'])
             }else{
                 alert("提交失败");
             }

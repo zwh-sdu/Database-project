@@ -12,8 +12,14 @@ if ($conn->connect_error) {
 
 $dormid=$_POST['dormid'];
 
-$sql = "SELECT dormitory.DormID,DormCap,COUNT(StuID) as count,(SELECT StuName FROM student natural join student_dormitory WHERE DormID=dormitory.DormID and IsHeader='是') as header
-    FROM (dormitory left join student_dormitory on dormitory.DormID=student_dormitory.DormID) WHERE dormitory.DormID like '%$dormid%' GROUP BY DormID ORDER BY DormID";
+//$sql = "SELECT dormitory.DormID,DormCap,COUNT(StuID) as count,(SELECT StuName FROM student natural join student_dormitory WHERE DormID=dormitory.DormID and IsHeader='是') as header
+//    FROM (dormitory left join student_dormitory on dormitory.DormID=student_dormitory.DormID) WHERE dormitory.DormID like '%$dormid%' GROUP BY DormID ORDER BY DormID";
+
+$sql = "SELECT dormitory.DormID,DormCap,COUNT(distinct StuID) as count,
+       AVG(InspScore) as avg,
+       (SELECT StuName FROM student natural join student_dormitory WHERE DormID=dormitory.DormID and IsHeader='是') as header
+    FROM inspection right join (dormitory left join student_dormitory on dormitory.DormID=student_dormitory.DormID) on dormitory.DormID=inspection.DormID WHERE dormitory.DormID like '%$dormid%' GROUP BY dormitory.DormID ORDER BY dormitory.DormID";
+
 
 $result = $conn->query($sql);
 if($result->num_rows>0){

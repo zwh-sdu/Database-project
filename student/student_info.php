@@ -17,5 +17,4 @@ if($result->num_rows>0){
     $row = mysqli_fetch_array($result);
     echo json_encode($row);
 }
-
 $conn->close();

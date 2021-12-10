@@ -15,9 +15,6 @@ $sql = "SELECT dormitory.DormID,DormCap,COUNT(distinct StuID) as count,
        (SELECT StuName FROM student natural join student_dormitory WHERE DormID=dormitory.DormID and IsHeader='是') as header
     FROM inspection right join (dormitory left join student_dormitory on dormitory.DormID=student_dormitory.DormID) on dormitory.DormID=inspection.DormID GROUP BY dormitory.DormID ORDER BY dormitory.DormID";
 
-
-//$sql = "SELECT dormitory.DormID,DormCap FROM (dormitory left join student_dormitory on dormitory.DormID=student_dormitory.DormID)";
-
 $result = $conn->query($sql);
 if($result->num_rows>0){
     while ($row = mysqli_fetch_array($result)){
@@ -25,5 +22,4 @@ if($result->num_rows>0){
     }
     echo json_encode($res);
 }
-
 $conn->close();

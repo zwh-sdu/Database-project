@@ -23,13 +23,28 @@ if($isheader===""){
     $isheader="否";
 }
 
-$sql = "INSERT INTO student (StuID, StuName, StuSex, StuMajor,StuClass,StuGrade) 
+//由于在事务提交中系统默认提交，故这里设置为FALSE先不提交
+$conn->autocommit(false);
+//其实这里系统已经相当在这里做个保存点，记录此时所有状态，回滚是回滚到这里
+
+$sql1 = "INSERT INTO student (StuID, StuName, StuSex, StuMajor,StuClass,StuGrade) 
 VALUES ('$stuid','$stuname','$stusex','$stumajor','$stuclass','$stugrade')";
-$result = $conn->query($sql);
-$sql = "INSERT INTO account_info (UserId, UserType, UserPwd)
+$result1 = $conn->query($sql1);
+$sql2 = "INSERT INTO account_info (UserId, UserType, UserPwd)
 VALUE ('$stuid','student','88888888')";
-$result = $conn->query($sql);
-$sql = "INSERT INTO student_dormitory (StuID, DormID, BedID, IsHeader)
+$result2 = $conn->query($sql2);
+$sql3 = "INSERT INTO student_dormitory (StuID, DormID, BedID, IsHeader)
 VALUE ('$stuid','$dorm','$bed','$isheader')";
-$result = $conn->query($sql);
+$result3 = $conn->query($sql3);
+
+//判断是否都执行成功
+if(!$result1||!$result2||!$result3){
+    //只要有一条失败便回滚，都不执行,若设置滚回点，如a,加个参数a变滚回到a处
+    $conn->rollback();
+}else{
+    //一旦提交无法回滚，成功则提交
+    $conn->commit();
+}
+echo json_encode($result1&&$result2&&$result3);
+
 $conn->close();

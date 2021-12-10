@@ -9,7 +9,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
-
 $sql = "SELECT StuID,StuName FROM student";
 $result = $conn->query($sql);
 if($result->num_rows>0){
@@ -18,5 +17,4 @@ if($result->num_rows>0){
     }
     echo json_encode($res);
 }
-
 $conn->close();

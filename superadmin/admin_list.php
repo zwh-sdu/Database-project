@@ -9,9 +9,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
-//先查询student和student_dormitory的自然连接获得结果。
-$stuid = $_GET['stuid'];
-$sql = "SELECT * FROM student natural join student_dormitory natural join inspection WHERE (StuID='$stuid') ORDER BY InspTime desc";
+
+$sql = "SELECT * FROM account_info WHERE UserType='admin'";
 $result = $conn->query($sql);
 if($result->num_rows>0){
     while ($row = mysqli_fetch_array($result)){
@@ -19,4 +18,5 @@ if($result->num_rows>0){
     }
     echo json_encode($res);
 }
+
 $conn->close();

@@ -9,13 +9,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
-$stuid=$_POST['stuid'];
-$sql = "SELECT StuID,StuName FROM student WHERE StuID='$stuid'";
+
+$userid=$_POST['userid'];
+$password=$_POST['password'];
+
+$sql = "INSERT INTO account_info (UserId, UserType, UserPwd) 
+VALUES ('$userid','admin','$password')";
 $result = $conn->query($sql);
-if($result->num_rows>0){
-    while ($row = mysqli_fetch_array($result)){
-        $res[]=$row;
-    }
-    echo json_encode($res);
-}
 $conn->close();

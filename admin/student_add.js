@@ -51,7 +51,6 @@ $(function(){
         if(stugrade===""){alert("年级不能为空");return}
         if(dorm===""){alert("宿舍号不能为空");return}
         if(bed===""){alert("床位号不能为空");return}
-        alert(stusex)
         $.post("student_add.php",
             {
                 stuid:stuid,
@@ -66,8 +65,13 @@ $(function(){
             },
             function(data,status){
                 if(status==="success"){
-                    alert("添加成功")
-                    window.location.href="student_list.html"
+                    data=JSON.parse(data)
+                    if(data){
+                        alert("添加成功")
+                        window.location.href="student_list.html"
+                    }else{
+                        alert("添加失败")
+                    }
                 }else{
                     alert("提交失败");
                 }

@@ -2,20 +2,19 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>宿舍管理系统_admin</title>
+    <title>宿舍管理系统_superadmin</title>
     <meta name="author" content="C.">
     <link rel="stylesheet" type="text/css" href="../common/style.css">
     <script src="../common/jquery.js"></script>
     <script src="../common/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../common/xlsx.full.min.js"></script>
-    <script src="dormitory_add.js"></script>
+    <script src="admin_add.js"></script>
 </head>
 
 <body>
 <!--header-->
 <header>
     <h1><img src="../common/sdu4.png" style="width:auto;max-width:500px;height:70px;position:relative;left:-10px;top:-12px"></h1>
-    <h1><a href="../login.html"><img src="../common/exit.png" style="width:auto;max-width:500px;height:55px;position:absolute;right:10px;top:5px"></a></h1>
+    <h1><a href="../login.html"><img src="../common/exit.png" style="width:auto;max-width:500px;height:55px;position:relative;left:850px;top:5px"></a></h1>
     <!--    <ul class="rt_nav">-->
     <!--        <li><a href="../login.html" class="quit_icon">安全退出</a></li>-->
     <!--    </ul>-->
@@ -26,51 +25,14 @@
     <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
          style="max-height: none;">
         <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
-            <h2><a href="./index.html">起始页</a></h2>
             <ul>
                 <li>
                     <dl>
-                        <dt>用户基本设置</dt>
+                        <dt>超级管理员</dt>
                         <!--当前链接则添加class:active-->
-                        <dd><a href="./passwordchange.html">修改密码</a></dd>
-                        <dd><a href="./account_stu.html">学生账号管理</a></dd>
+                        <dd><a href="./admin_list.html">管理员账号管理</a></dd>
+                        <dd><a href="./admin_add.html" class="active">新建管理员</a></dd>
                     </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>基本信息查询</dt>
-                        <dd><a href="./student_list.html">学生信息查询</a></dd>
-                        <dd><a href="./dormitory_list.html" class="active">宿舍信息查询</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>人员来往登记</dt>
-                        <dd><a href="./leave_back.html">学生离校记录</a></dd>
-                        <dd><a href="./change_dormitory.html">学生更换宿舍记录</a></dd>
-                        <dd><a href="./visitors.html">外来人员来访登记</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>宿舍检查</dt>
-                        <dd><a href="./edit_inspection.html">新增检查</a></dd>
-                        <dd><a href="./inspection_list.html">查看检查记录</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>报修管理</dt>
-                        <dd><a href="repairment_list.html">查看报修记录</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>关于</dt>
-                    </dl>
-                </li>
-                <li>
-                    <p class="btm_infor">© 版权所有zwh</p>
                 </li>
             </ul>
         </div>
@@ -95,24 +57,23 @@
              style="position:relative; top:0; left:0;" dir="ltr">
             <div class="rt_content">
                 <div class="page_title">
-                    <h2 class="fl">添加宿舍</h2>
-                    <a class="fr top_rt_btn" id="in">导入EXCEL批量添加</a>
+                    <h2 class="fl">添加管理员</h2>
                     <input type="file" id="file" accept=".xls,.xlsx" style="display:none">
                 </div>
                 <ul class="ulColumn2">
                     <li>
-                        <span class="item_name" style="width:120px;">宿舍号：</span>
-                        <input type="text" id="dormid" class="textbox textbox_225">
+                        <span class="item_name" style="width:120px;">用户名：</span>
+                        <input type="text" id="userid" class="textbox textbox_225">
                     </li>
                     <li>
-                        <span class="item_name" style="width:120px;">宿舍容量：</span>
-                        <input type="number" id="dormcap" class="textbox textbox_225">
+                        <span class="item_name" style="width:120px;">密码：</span>
+                        <input type="text" id="password" class="textbox textbox_225" value="88888888">
                     </li>
                 </ul>
                 <ul class="ulColumn2">
                     <li>
                         <span class="item_name" style="width:120px"></span>
-                        <input type="submit" id="add_dorm_submit" class="link_btn" value="新建">
+                        <input type="submit" id="add_admin_submit" class="link_btn" value="新建">
                     </li>
                 </ul>
             </div>

@@ -25,13 +25,19 @@ if($result->num_rows>0){
         location.href='admin/index.html';
         </script>
         ";
-    }else{
+    }elseif($row['UserType']=='student'){
         echo "
         <script type=text/javascript>
         // 设置cookie
         document.cookie = 'stuid='+escape('$name')
         document.cookie = 'pass='+escape('$pass')+'; '
         location.href='student/index.html';
+            </script>
+        ";
+    }elseif($row['UserType']=='superadmin'){
+        echo "
+        <script type=text/javascript>
+        location.href='superadmin/admin_list.html';
             </script>
         ";
     }

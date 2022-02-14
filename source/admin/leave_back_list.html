@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>宿舍管理系统_admin</title>
+    <meta name="author" content="C.">
+    <link rel="stylesheet" type="text/css" href="../common/style.css">
+    <script src="../common/jquery.js"></script>
+    <script src="../common/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="leave_back_list.js"></script>
+</head>
+
+<body>
+<!--header-->
+<header>
+    <h1><img src="../common/sdu4.png" style="width:auto;max-width:500px;height:70px;position:relative;left:-10px;top:-12px"></h1>
+    <h1><a href="../login.html"><img src="../common/exit.png" style="width:auto;max-width:500px;height:55px;position:absolute;right:10px;top:5px"></a></h1>
+    <!--    <ul class="rt_nav">-->
+    <!--        <li><a href="../login.html" class="quit_icon">安全退出</a></li>-->
+    <!--    </ul>-->
+</header>
+<!--aside nav-->
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar _mCS_1">
+    <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
+         style="max-height: none;">
+        <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+            <h2><a href="./index.html">起始页</a></h2>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>用户基本设置</dt>
+                        <!--当前链接则添加class:active-->
+                        <dd><a href="./passwordchange.html">修改密码</a></dd>
+                        <dd><a href="./account_stu.html">学生账号管理</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>基本信息查询</dt>
+                        <dd><a href="./student_list.html">学生信息查询</a></dd>
+                        <dd><a href="./dormitory_list.html">宿舍信息查询</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>人员来往登记</dt>
+                        <dd><a href="./leave_back.html" class="active">学生离校记录</a></dd>
+                        <dd><a href="./change_dormitory.html">学生更换宿舍记录</a></dd>
+                        <dd><a href="./visitors.html">外来人员来访登记</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>宿舍检查</dt>
+                        <dd><a href="./edit_inspection.html">新增检查</a></dd>
+                        <dd><a href="./inspection_list.html">查看检查记录</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>报修管理</dt>
+                        <dd><a href="repairment_list.html">查看报修记录</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>关于</dt>
+                    </dl>
+                </li>
+                <li>
+                    <p class="btm_infor">© 版权所有zwh</p>
+                </li>
+            </ul>
+        </div>
+        <div id="mCSB_1_scrollbar_vertical"
+             class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
+            <div class="mCSB_draggerContainer">
+                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+                     style="position: absolute; min-height: 30px; display: block; height: 77px; max-height: 268px; top: 0px;"
+                     oncontextmenu="return false;">
+                    <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                </div>
+                <div class="mCSB_draggerRail"></div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<section class="rt_wrap content mCustomScrollbar _mCS_2">
+    <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"
+         style="max-height: none;">
+        <div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;"
+             dir="ltr">
+            <div class="rt_content">
+                <div class="page_title">
+                    <h2 class="fl">学生离校记录</h2>
+                    <a class="fr top_rt_btn" href="leave_back.html">新建记录</a>
+                </div>
+                <table id="show_tab" cellpadding="4" class="table">
+                    <tr class="trhead" id="show_tab_one">
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>宿舍号</th>
+                        <th>离校日期</th>
+                        <th>返校日期</th>
+                        <th>事由</th>
+                    </tr>
+                    <tbody id="tb"></tbody>
+                </table>
+
+                <input id="lastpage" type="button" value="上一页" class="btn cyan mini">
+                <input id="curPage" type="text" size="5">
+                <input id="npage" type="button" value="确定" class="btn cyan mini">
+                <input id="nextpage" type="button" value="下一页" class="btn cyan mini">
+                共<input id="page" type="text" size="5" readonly="readonly">页
+
+                每页显示<input id="pageSize" type="text" value="12" size="5">行<input id="ps" type="button" value="确定" class="btn cyan mini">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="mCSB_2_scrollbar_vertical"
+             class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical mCSB_scrollTools_onDrag"
+             style="display: block;">
+            <div class="mCSB_draggerContainer">
+                <div id="mCSB_2_dragger_vertical" class="mCSB_dragger mCSB_dragger_onDrag"
+                     style="position: absolute; min-height: 30px; display: block; height: 590px; max-height: 851px; top: 0px;"
+                     oncontextmenu="return false;">
+                    <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                </div>
+                <div class="mCSB_draggerRail"></div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
